@@ -7,6 +7,7 @@ import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -26,8 +27,12 @@ import com.example.application.views.helloworld.HelloWorldView;
 /**
  * The main view is a top-level placeholder for other views.
  */
-@PWA(name = "CSP for Vaadin", shortName = "CSP for Vaadin", enableInstallPrompt = false)
+// PWA disabled since the service worker script would need special handling
+// @PWA(name = "CSP for Vaadin", shortName = "CSP for Vaadin",
+// enableInstallPrompt = false)
 @Theme(themeFolder = "cspforvaadin")
+// Load the CSP injector script.
+@JsModule("./csp.js")
 public class MainView extends AppLayout {
 
     private final Tabs menu;
